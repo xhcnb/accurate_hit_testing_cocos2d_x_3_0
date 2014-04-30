@@ -66,7 +66,7 @@ bool HelloWorld::init()
     // add the label as a child to this layer
     this->addChild(label, 1);
 
-    status_label = LabelTTF::create("请点击屏幕!", "Arial", 36);
+    status_label = LabelTTF::create("Touch anywhere!", "Arial", 36);
     status_label->setPosition(Point(origin.x + visibleSize.width/2, 1.2*status_label->getContentSize().height));
     this->addChild(status_label);
 
@@ -76,20 +76,21 @@ bool HelloWorld::init()
     // position the sprite on the center of the screen
     sp_2dx->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
 
-    //加载body定义文件
+    //load
     MyBodyParser::getInstance()->parseJsonFile("bodies.json");
 
-    //为我们的2dx.png绑定body, 第二个参数是我们在body editor中设置的名字
+    //bind physicsbody to sprite
     auto _body = MyBodyParser::getInstance()->bodyFormJson(sp_2dx, "2dx");
     if (_body != nullptr) {
-        _body->setDynamic(false); //设置静止,不然body会受力或其他body的影响
+        _body->setDynamic(false); //set it static body.
+        _body->setCollisionBitmask(0x000000); //don't collision with anybody.
         sp_2dx->setPhysicsBody(_body);
     }
 
     // add the sprite as a child to this layer
     this->addChild(sp_2dx, 0);
 
-    //添加事件监听
+    //add touchListener
     auto touchListener = EventListenerTouchOneByOne::create();
     touchListener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
     touchListener->onTouchMoved = CC_CALLBACK_2(HelloWorld::onTouchMoved, this);
@@ -99,35 +100,42 @@ bool HelloWorld::init()
     return true;
 }
 
-bool HelloWorld::onTouchBegan(Touch* touch, Event* event)
+Node* HelloWorld::nodeUnderTouch(cocos2d::Touch *touch)
 {
+    Node* node = nullptr;
     //转换到layer内的坐标
     auto location = this->convertTouchToNodeSpace(touch);
     //得到当前点下方的物理shapes
-    auto arr = dynamic_cast<Scene*>(this->getParent())->getPhysicsWorld()->getShapes(location);
+    auto scene = Director::getInstance()->getRunningScene();
+    auto arr = scene->getPhysicsWorld()->getShapes(location);
 
     //遍历当前点击到的所有shapes, 看看有没有我们的2dx!
-    PhysicsBody* body = nullptr;
     for (auto& obj : arr)
     {
-        //是我们的2dx.png Sprite
+        //find it
         if ( obj->getBody()->getNode() == sp_2dx)
         {
-            body = obj->getBody();
+            node = obj->getBody()->getNode();
             break;
         }
     }
+    return node;
+}
 
-    //找到了
-    if (body != nullptr)
+bool HelloWorld::onTouchBegan(Touch* touch, Event* event)
+{
+    auto current_node = nodeUnderTouch(touch);
+
+    //get it!
+    if (current_node == sp_2dx)
     {
         status_label->setColor(Color3B::GREEN);
-        status_label->setString("Ohoo, 你点到我了!");
+        status_label->setString("Ohoo, U catch me!");
     }
     else
     {
         status_label->setColor(Color3B::RED);
-        status_label->setString("Haha, 没点到!");
+        status_label->setString("Haha, touch outside!");
     }
 
     return true;
@@ -140,7 +148,7 @@ void HelloWorld::onTouchMoved(Touch* touch, Event* event)
 void HelloWorld::onTouchEnded(Touch* touch, Event* event)
 {
     status_label->setColor(Color3B::WHITE);
-    status_label->setString("请点击屏幕!");
+    status_label->setString("Touch anywhere!");
 }
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
