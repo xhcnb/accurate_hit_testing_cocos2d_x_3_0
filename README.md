@@ -2,6 +2,18 @@ Accurate hit testing with Cocos2d-x 3.0 integrated physics feature.
 
 Cocos2d-x 3.0 version has an integrated physics feature based on chipmunk. It's very easy to make accurate hit testing in our cocos2d-x game.
 
+![create bodies.json](./images/hit_test.gif)
+
+####How to run?
+Clone source code, android copy cocos2d-x 3.0 version files under `cocos2d`, the project looks like:
+
+![create bodies.json](./images/proj_face.png)
+
+open proj.ios_mac/PhysicsDemo.xcodeproj to build for ios or mac
+
+run `proj.android/build_native.py` to build for android.
+I have put prbuilt files under 	`prebuilt编译好的`, please checkout and test.
+
 ####Basic principle
 
 There is an open source body editor https://code.google.com/p/box2d-editor/ , with this free&powerful tool we can get  physicsbody polygons of an sprite. Then we import the polygons data into game and let the physics engine handle the rest thing.
@@ -29,13 +41,20 @@ Node: please use JRE6 to run it.
 ####5.get the body data
 
 open the editor, create one new project, name `bodies.json` and save under the project's Resource.
+![create bodies.json](./images/new_json.png)
 Don't forget add`bodies.json` to project.
 
 Create new body definition, name it `2dx`.
+![create bodies.json](./images/new_body_01.png)
+![create bodies.json](./images/new_body_02.png)
+![create bodies.json](./images/new_body_03.png)
 
 Use `Auto-trace` to get the image edge.
+![create bodies.json](./images/new_body_04.png)
+![create bodies.json](./images/new_body_05.png)
 
 Save `bodies.json`
+![create bodies.json](./images/save_json.png)
 
 Next, we should write some code to import `bodies.json`.
 
