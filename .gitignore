@@ -1,0 +1,33 @@
+# Ignore cocos2d-x files, now cocos2d-x 3.0rc
+/cocos2d
+
+# Ignore files build by ndk and eclipse
+libs/
+bin/
+obj/
+gen/
+assets/
+local.properties
+
+# Ignore python compiled files
+*.pyc
+
+# Ignore files build by xcode
+*.mode*v*
+*.pbxuser
+*.xcbkptlist
+*.xcscheme
+*.xcworkspacedata
+*.xcuserstate
+*.xccheckout
+xcschememanagement.plist
+.DS_Store
+._.*
+xcuserdata/
+DerivedData/
+
+# cocostudio
+cocostudio/Backup
+cocostudio/Resources
+	
+# Others should Ignored
