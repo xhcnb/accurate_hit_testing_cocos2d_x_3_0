@@ -5,13 +5,14 @@ Cocos2d-x 3.0 version has an integrated physics feature based on chipmunk. It's 
 ![create bodies.json](./images/hit_test.gif)
 
 ####How to run?
-Clone source code, android copy cocos2d-x 3.0 version files under `cocos2d`, the project looks like:
+Clone source code, and copy cocos2d-x 3.0 version files under `cocos2d`, the project looks like:
 
 ![create bodies.json](./images/proj_face.png)
 
 open proj.ios_mac/PhysicsDemo.xcodeproj to build for ios or mac
 
 run `proj.android/build_native.py` to build for android.
+
 I have put prbuilt files under 	`prebuilt编译好的`, please checkout and test.
 
 ####Basic principle
