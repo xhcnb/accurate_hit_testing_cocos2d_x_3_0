@@ -1,12 +1,15 @@
 #include "HelloWorldScene.h"
-
+#include "MyBodyParser.h"
 USING_NS_CC;
 
 Scene* HelloWorld::createScene()
 {
     // 'scene' is an autorelease object
     auto scene = Scene::createWithPhysics();
-    
+
+    //打开debug draw
+    scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+
     // 'layer' is an autorelease object
     auto layer = HelloWorld::create();
 
@@ -54,7 +57,7 @@ bool HelloWorld::init()
     // add a label shows "Hello World"
     // create and initialize a label
     
-    auto label = LabelTTF::create("Hello World", "Arial", 24);
+    auto label = LabelTTF::create("Physics Body Loader Demo", "Arial", 24);
     
     // position the label on the center of the screen
     label->setPosition(Point(origin.x + visibleSize.width/2,
@@ -64,10 +67,20 @@ bool HelloWorld::init()
     this->addChild(label, 1);
 
     // add "HelloWorld" splash screen"
-    auto sprite = Sprite::create("HelloWorld.png");
+    auto sprite = Sprite::create("2dx.png");
 
     // position the sprite on the center of the screen
     sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+
+    //加载body定义文件
+    MyBodyParser::getInstance()->parseJsonFile("bodies.json");
+
+    //为我们的2dx.png绑定body, 第二个参数是我们在body editor中设置的名字
+    auto _body = MyBodyParser::getInstance()->bodyFormJson(sprite, "2dx");
+    if (_body != nullptr) {
+        _body->setDynamic(false); //设置静止,不然body会受力或其他body的影响
+        sprite->setPhysicsBody(_body);
+    }
 
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);

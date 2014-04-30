@@ -63,6 +63,8 @@
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
 		966FAE641910E90D00E78828 /* bodies.json in Resources */ = {isa = PBXBuildFile; fileRef = 966FAE631910E90D00E78828 /* bodies.json */; };
+		966FAE6A1910E9E600E78828 /* MyBodyParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966FAE681910E9E600E78828 /* MyBodyParser.cpp */; };
+		966FAE6B1910E9E600E78828 /* MyBodyParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966FAE681910E9E600E78828 /* MyBodyParser.cpp */; };
 		96DED20A1910E61A00C57E82 /* 2dx.png in Resources */ = {isa = PBXBuildFile; fileRef = 96DED2091910E61A00C57E82 /* 2dx.png */; };
 		96DED20B1910E61A00C57E82 /* 2dx.png in Resources */ = {isa = PBXBuildFile; fileRef = 96DED2091910E61A00C57E82 /* 2dx.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -264,6 +266,8 @@
 		50EF62A017ECD613001EB2F8 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
 		966FAE631910E90D00E78828 /* bodies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bodies.json; sourceTree = "<group>"; };
+		966FAE681910E9E600E78828 /* MyBodyParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MyBodyParser.cpp; path = ../Classes/MyBodyParser.cpp; sourceTree = "<group>"; };
+		966FAE691910E9E600E78828 /* MyBodyParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyBodyParser.h; path = ../Classes/MyBodyParser.h; sourceTree = "<group>"; };
 		96DED2091910E61A00C57E82 /* 2dx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2dx.png; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -341,6 +345,8 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				966FAE681910E9E600E78828 /* MyBodyParser.cpp */,
+				966FAE691910E9E600E78828 /* MyBodyParser.h */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
@@ -677,6 +683,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				966FAE6A1910E9E600E78828 /* MyBodyParser.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
@@ -691,6 +698,7 @@
 			files = (
 				5087E75717EB910900C73F5D /* AppDelegate.cpp in Sources */,
 				5087E75817EB910900C73F5D /* HelloWorldScene.cpp in Sources */,
+				966FAE6B1910E9E600E78828 /* MyBodyParser.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
