@@ -41,25 +41,28 @@ bool MyBodyParser::parseJsonFile(const std::string& pFile)
     return result;
 }
 
+//从json文件加载正确的body
 PhysicsBody* MyBodyParser::bodyFormJson(cocos2d::Node *pNode, const std::string& name)
 {
     PhysicsBody* body = nullptr;
     rapidjson::Value &bodies = doc["rigidBodies"];
     if (bodies.IsArray())
     {
+        //遍历文件中的所有body
         for (int i=0; i<bodies.Size(); ++i)
         {
+            //找到了请求的那一个
             if (0 == strcmp(name.c_str(), bodies[i]["name"].GetString()))
             {
                 rapidjson::Value &bd = bodies[i];
                 if (bd.IsObject())
                 {
+                    //创建一个PhysicsBody, 并且根据node的大小来设置
                     body = PhysicsBody::create();
                     float width = pNode->getContentSize().width;
                     float offx = - pNode->getAnchorPoint().x*pNode->getContentSize().width;
                     float offy = - pNode->getAnchorPoint().y*pNode->getContentSize().height;
 
-                    //auto name = bd["name"].asCString();
                     Point origin( bd["origin"]["x"].GetDouble(), bd["origin"]["y"].GetDouble());
                     rapidjson::Value &polygons = bd["polygons"];
                     for (int i = 0; i<polygons.Size(); ++i)

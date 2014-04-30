@@ -65,6 +65,7 @@
 		966FAE641910E90D00E78828 /* bodies.json in Resources */ = {isa = PBXBuildFile; fileRef = 966FAE631910E90D00E78828 /* bodies.json */; };
 		966FAE6A1910E9E600E78828 /* MyBodyParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966FAE681910E9E600E78828 /* MyBodyParser.cpp */; };
 		966FAE6B1910E9E600E78828 /* MyBodyParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 966FAE681910E9E600E78828 /* MyBodyParser.cpp */; };
+		966FAE6C1910FC9400E78828 /* bodies.json in Resources */ = {isa = PBXBuildFile; fileRef = 966FAE631910E90D00E78828 /* bodies.json */; };
 		96DED20A1910E61A00C57E82 /* 2dx.png in Resources */ = {isa = PBXBuildFile; fileRef = 96DED2091910E61A00C57E82 /* 2dx.png */; };
 		96DED20B1910E61A00C57E82 /* 2dx.png in Resources */ = {isa = PBXBuildFile; fileRef = 96DED2091910E61A00C57E82 /* 2dx.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -669,6 +670,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5087E75317EB910900C73F5D /* CloseNormal.png in Resources */,
+				966FAE6C1910FC9400E78828 /* bodies.json in Resources */,
 				96DED20B1910E61A00C57E82 /* 2dx.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				5087E75417EB910900C73F5D /* CloseSelected.png in Resources */,
