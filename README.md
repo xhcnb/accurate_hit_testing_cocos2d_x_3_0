@@ -1,4 +1,4 @@
-Accurate hit testing with Cocos2d-x 3.0 integrated physics feature.
+#Accurate hit testing with Cocos2d-x 3.0 integrated physics feature.
 
 Cocos2d-x 3.0 version has an integrated physics feature based on chipmunk. It's very easy to make accurate hit testing in our cocos2d-x game.
 
